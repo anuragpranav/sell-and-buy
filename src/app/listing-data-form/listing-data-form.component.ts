@@ -9,6 +9,9 @@ import { Listing } from '../types';
 })
 export class ListingDataFormComponent implements OnInit{
 @Input() buttonText: any;
+@Input() CurrentName: string;
+@Input() CurrentDescription: string;
+@Input() CurrentPrice: any;
 
   name: string = '';
   description: string='';
@@ -22,7 +25,9 @@ export class ListingDataFormComponent implements OnInit{
 
 
   ngOnInit(): void {
-    
+    this.name = this.CurrentName,
+    this.description = this.CurrentDescription,
+    this.price = this.CurrentPrice    
   }
 
   onButtonClicked(): void {

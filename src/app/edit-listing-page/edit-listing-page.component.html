@@ -1,7 +1,12 @@
 <p>edit-listing-page works!</p>
 <div class="content-box">
     <h2>Edit Listing</h2>
-    <app-listing-data-form buttonText="Save Changes"
-    (onSubmit) = "onSubmit()"></app-listing-data-form>
+    <app-listing-data-form 
+    buttonText="Save Changes"
+    [CurrentName]="listing.name"
+    [CurrentDescription] = "listing.description"
+    [CurrentPrice] = "listing.price"
+    (onSubmit) = "onSubmit()">
+    </app-listing-data-form>
 </div>
 
