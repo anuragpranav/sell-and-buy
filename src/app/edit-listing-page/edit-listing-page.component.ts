@@ -9,11 +9,17 @@ import { Router } from '@angular/router';
 export class EditListingPageComponent implements OnInit{
 
 
-  constructor() {
+  constructor(
+    private router: Router
+  ) {
   }
 
   ngOnInit(): void {
   
   }
 
+  onSubmit(): void{
+    alert('Saving changes to the listing...');
+    this.router.navigateByUrl('/my-listings');
+  }
 }
