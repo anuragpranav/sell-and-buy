@@ -8,7 +8,7 @@ import { Listing } from '../types';
   styleUrls: ['./listing-data-form.component.css']
 })
 export class ListingDataFormComponent implements OnInit{
-@Input() buttonText: any;
+@Input() buttonText: string;
 @Input() CurrentName: string;
 @Input() CurrentDescription: string;
 @Input() CurrentPrice: any;
@@ -26,7 +26,7 @@ export class ListingDataFormComponent implements OnInit{
 
   ngOnInit(): void {
     this.name = this.CurrentName,
-    this.description = this.CurrentDescription,
+    this.description = this.CurrentDescription
     this.price = this.CurrentPrice    
   }
 

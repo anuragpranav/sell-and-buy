@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute,Router } from '@angular/router';
 import { Listing } from '../types';
-import { fakeMyListings } from '../fake-data';
+import { fakeListings, fakeMyListings } from '../fake-data';
 
 @Component({
   selector: 'app-edit-listing-page',
@@ -19,9 +19,10 @@ export class EditListingPageComponent implements OnInit{
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
+ 
     //this.listing = fakeMyListings.find(listing=>listing.id === id)
-    const fakeListing =  fakeMyListings.find(listing => listing.id === id);
-
+    const fakeListing =  fakeListings.find(listing => listing.id == id);
+    console.log(fakeMyListings);
     if(fakeListing !== undefined)
     {
         this.listing = fakeListing;
