@@ -34,7 +34,7 @@ export class EditListingPageComponent implements OnInit{
     .subscribe(listing => this.listing = listing)
   }
 
-  onSubmit({name, description, price}): void{
+  onSubmit({name, description, price} : {name: string, description: string, price: number}): void{
     //alert('Saving changes to the listing...');
     this.listingService.editListing(this.listing.id, name, description, price)
     .subscribe(()=> {

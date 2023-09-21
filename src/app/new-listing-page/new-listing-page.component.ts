@@ -19,7 +19,7 @@ export class NewListingPageComponent implements OnInit{
    // throw new Error('Method not implemented.');
   }
   
-  onSubmit({ name, description, price }): void {
+  onSubmit({ name, description, price } : {name: string, description: string, price: number}): void {
     this.listingsService.creatListing(name, description, price)
       .subscribe(() => {
         this.router.navigateByUrl('/my-listings');
