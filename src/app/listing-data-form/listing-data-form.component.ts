@@ -13,7 +13,7 @@ export class ListingDataFormComponent implements OnInit{
 @Input() CurrentDescription: string;
 @Input() CurrentPrice: any;
 
-  name: string = '';
+  name: string = '' ;
   description: string='';
   price: string='';
 
