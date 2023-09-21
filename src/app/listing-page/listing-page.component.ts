@@ -20,7 +20,10 @@ export class ListingPageComponent implements OnInit {
 
   ngOnInit(): void {
     
-    this.listings = this.listingsService.getListings();
+    this.listingsService.getListings()
+    .subscribe(listings => this.listings = listings)
+
+    //this.listings = this.listingsService.getListings();
     
     //this.listings = fakeListings;
   }
