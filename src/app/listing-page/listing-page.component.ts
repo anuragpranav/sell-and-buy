@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Listing } from '../types';
 import { fakeListings } from '../fake-data'
-
+import { ListingsService } from '../listings.service';
 
 @Component({
   selector: 'app-listing-page',
@@ -12,12 +12,17 @@ export class ListingPageComponent implements OnInit {
 
   listings: Listing[] = [];
 
-  constructor() {
+  constructor(
+    private listingsService: ListingsService,
+  ) {
 
   }
 
   ngOnInit(): void {
-    this.listings = fakeListings;
+    
+    this.listings = this.listingsService.getListings();
+    
+    //this.listings = fakeListings;
   }
 
 }
