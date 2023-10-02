@@ -38,9 +38,9 @@ import { AuthService } from './auth.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
-    HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),
+    FormsModule,
+    HttpClientModule, 
     AngularFireAuthModule,
     AngularFirestoreModule,
     AngularFireStorageModule,
