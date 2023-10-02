@@ -16,15 +16,14 @@ export class AuthService {
     return this.AuthLogin(new GoogleAuthProvider());
   }
   // Auth logic to run auth providers
-  AuthLogin(provider : any) {
-    return this.afAuth
-      .signInWithPopup(provider)
-      .then((result) => {
-        console.log('You have been successfully logged in!');
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+  async AuthLogin(provider : any) {
+    try {
+      const result = await this.afAuth
+        .signInWithPopup(provider);
+      console.log('You have been successfully logged in!');
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   signOutClicked(){
