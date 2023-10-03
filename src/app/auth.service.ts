@@ -21,13 +21,18 @@ export class AuthService {
   }
   // Auth logic to run auth providers
   async AuthLogin(provider : GoogleAuthProvider) {
-    const result = await this.afAuth
+    try {
+      const result = await this.afAuth
         .signInWithPopup(provider).catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
           console.log(errorCode + "  " + errorMessage);
         });;
       console.log('You have been successfully logged in!');
+    }
+    catch (error) {
+      console.log(error);
+    }
   }
 
   signOutClicked(){
