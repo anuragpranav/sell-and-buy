@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GoogleAuthProvider, getAuth, signInWithPopup, signInWithRedirect } from 'firebase/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { initializeApp } from 'firebase/app';
+import { environment } from 'src/environments/environment.development';
 
 @Component({
   selector: 'app-root',
@@ -23,11 +25,16 @@ export class AppComponent {
   // Auth logic to run auth providers
   async AuthLogin(provider : GoogleAuthProvider) {
     try {
-          await this.afAuth.signInWithPopup(provider).catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          console.log(errorCode + " :  " + errorMessage);
-        });;
+      const app =   initializeApp(environment.firebase);
+
+      //await signInWithRedirect(getAuth(app), provider);
+
+      await signInWithPopup(getAuth(app),provider).catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode + " :  " + errorMessage);
+      });;
+
       console.log('You have been successfully logged in!');
     }
     catch (error) {
